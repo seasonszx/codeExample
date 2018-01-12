@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+
+<log4j:configuration>
+
+	<!--对于ConsoleAppender来说，在开发阶段还是比较有用的，能直接在ide中看到输出的日志内容， 但是在实际的产品阶段，我们更希望将日志输出到指定的文件上查看，这就需要用到FileAppender -->
+	<appender name="CONSOLE" class="org.apache.log4j.ConsoleAppender">
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="[%d] [%p] [%c] %n   %m%n" />
+		</layout>
+	</appender>
+	
+	<appender name="CONSOLE_REQUEST" class="org.apache.log4j.ConsoleAppender">
+		<param name="Target" value="System.err" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="Request------->%m%n" />
+		</layout>
+	</appender>
+	
+	<appender name="CONSOLE_RESPONSE" class="org.apache.log4j.ConsoleAppender">
+		<param name="Target" value="System.err" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="Response------->%m%n---------------------------------------------------%n" />
+		</layout>
+	</appender>
+
+	<!-- 写到本地日志文件 -->
+	<appender name="FILE" class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="file" value="D:/zanadu/logs/info.log" />
+		<param name="DatePattern" value=".yyyy-MM-dd" />
+		<param name="MaxFileSize" value="10MB" />
+		<param name="MaxBackupIndex" value="10" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="[%t] [%d] [%p] [%c] %n   %m%n" />
+		</layout>
+	</appender>
+	
+	<!-- 只对com.zx.platform.zanadu.manager.mapper包/类，输出 -->
+	<logger name="com.zx.platform.zanadu.manager.mapper" additivity="false">
+		<level value="DEBUG" />
+		<appender-ref ref="CONSOLE" />
+		<appender-ref ref="FILE" />
+	</logger>
+	
+	<!-- request 请求，输出 -->
+	<logger name="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping" additivity="false">
+		<level value="DEBUG" />
+		<appender-ref ref="CONSOLE_REQUEST" />
+	</logger>
+	
+	<!-- response 响应，输出 -->
+	<logger name="org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor" additivity="false">
+		<level value="DEBUG" />
+		<appender-ref ref="CONSOLE_RESPONSE" />
+	</logger>
+	
+	<root>
+		<level value="ERROR" />
+		<appender-ref ref="CONSOLE" />
+	</root>
+    
+</log4j:configuration> 
