@@ -1,5 +1,3 @@
-package com.zx.platform.zanadu.manager.em;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -7,10 +5,10 @@ import java.util.Map;
 
 /***
  * 公共枚举类型 （yes or no）是/否
- * @author Administrator
  *
  */
 public enum CommonEnum_YesOrNo {
+	
 	yes(1, "是"), no(0, "否");
 
 	private CommonEnum_YesOrNo(Integer index, String name) {
@@ -62,43 +60,42 @@ public enum CommonEnum_YesOrNo {
 		}
 		return list;
 	}
-	
+
 	public static String toJsonStr() {
 		CommonEnum_YesOrNo[] array = CommonEnum_YesOrNo.values();
 		StringBuffer sb = new StringBuffer();
 		sb.append("[");
 		for (CommonEnum_YesOrNo em : array) {
-			if(!sb.toString().equals("[")) {
+			if (!sb.toString().equals("[")) {
 				sb.append(",");
 			}
 			sb.append("{\"index\":");
-			sb.append("\""+em.getIndex()+"\",");
+			sb.append("\"" + em.getIndex() + "\",");
 			sb.append("\"name\":");
-			sb.append("\""+em.getName()+"\"}");
+			sb.append("\"" + em.getName() + "\"}");
 		}
 		sb.append("]");
 		return sb.toString();
 	}
-	
+
 	public static CommonEnum_YesOrNo getByIndex(Integer index) {
 		CommonEnum_YesOrNo[] array = CommonEnum_YesOrNo.values();
 		for (CommonEnum_YesOrNo em : array) {
-			if(em.getIndex()==index) {
+			if (em.getIndex() == index) {
 				return em;
 			}
 		}
 		return null;
 	}
-	
+
 	public static CommonEnum_YesOrNo getByName(String name) {
 		CommonEnum_YesOrNo[] array = CommonEnum_YesOrNo.values();
 		for (CommonEnum_YesOrNo em : array) {
-			if(em.name().equalsIgnoreCase(name)) {
+			if (em.name().equalsIgnoreCase(name)) {
 				return em;
 			}
 		}
 		return null;
 	}
-	
 
 }
