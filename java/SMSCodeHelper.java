@@ -5,6 +5,8 @@ import com.lexunedu.commons.utils.SMSCodeHelper;
 
 /***
  * 生成短信6位验证码
+ * @author seasonszx
+ * @since 2017年11月15日
  */
 public class SMSCodeHelper {
     private static char[] codeSequence = {

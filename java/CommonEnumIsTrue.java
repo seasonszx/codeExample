@@ -5,13 +5,15 @@ import java.util.Map;
 
 /***
  * 公共枚举类型 （yes or no）是/否
- *
+ * @author seasonszx
+ * @since 2017年11月15日
+ * @version 1.0.0
  */
-public enum CommonEnum_YesOrNo {
+public enum CommonEnumIsTrue {
 	
 	yes(1, "是"), no(0, "否");
 
-	private CommonEnum_YesOrNo(Integer index, String name) {
+	private CommonEnumIsTrue(Integer index, String name) {
 		this.index = index;
 		this.name = name;
 	}
@@ -36,10 +38,10 @@ public enum CommonEnum_YesOrNo {
 	}
 
 	public static Map<String, Map<String, Object>> toMap() {
-		CommonEnum_YesOrNo[] array = CommonEnum_YesOrNo.values();
+		CommonEnumIsTrue[] array = CommonEnumIsTrue.values();
 		Map<String, Map<String, Object>> enumMap = new HashMap<String, Map<String, Object>>();
 
-		for (CommonEnum_YesOrNo em : array) {
+		for (CommonEnumIsTrue em : array) {
 			Map<String, Object> map = new HashMap<String, Object>();
 			String key = em.name();
 			map.put("index", em.getIndex());
@@ -50,9 +52,9 @@ public enum CommonEnum_YesOrNo {
 	}
 
 	public static List<Map<String, Object>> toList() {
-		CommonEnum_YesOrNo[] array = CommonEnum_YesOrNo.values();
+		CommonEnumIsTrue[] array = CommonEnumIsTrue.values();
 		List<Map<String, Object>> list = new ArrayList<Map<String, Object>>();
-		for (CommonEnum_YesOrNo em : array) {
+		for (CommonEnumIsTrue em : array) {
 			Map<String, Object> map = new HashMap<String, Object>();
 			map.put("index", em.getIndex());
 			map.put("name", em.getName());
@@ -62,10 +64,10 @@ public enum CommonEnum_YesOrNo {
 	}
 
 	public static String toJsonStr() {
-		CommonEnum_YesOrNo[] array = CommonEnum_YesOrNo.values();
+		CommonEnumIsTrue[] array = CommonEnumIsTrue.values();
 		StringBuffer sb = new StringBuffer();
 		sb.append("[");
-		for (CommonEnum_YesOrNo em : array) {
+		for (CommonEnumIsTrue em : array) {
 			if (!sb.toString().equals("[")) {
 				sb.append(",");
 			}
@@ -78,9 +80,9 @@ public enum CommonEnum_YesOrNo {
 		return sb.toString();
 	}
 
-	public static CommonEnum_YesOrNo getByIndex(Integer index) {
-		CommonEnum_YesOrNo[] array = CommonEnum_YesOrNo.values();
-		for (CommonEnum_YesOrNo em : array) {
+	public static CommonEnumIsTrue getByIndex(Integer index) {
+		CommonEnumIsTrue[] array = CommonEnumIsTrue.values();
+		for (CommonEnumIsTrue em : array) {
 			if (em.getIndex() == index) {
 				return em;
 			}
@@ -88,9 +90,9 @@ public enum CommonEnum_YesOrNo {
 		return null;
 	}
 
-	public static CommonEnum_YesOrNo getByName(String name) {
-		CommonEnum_YesOrNo[] array = CommonEnum_YesOrNo.values();
-		for (CommonEnum_YesOrNo em : array) {
+	public static CommonEnumIsTrue getByName(String name) {
+		CommonEnumIsTrue[] array = CommonEnumIsTrue.values();
+		for (CommonEnumIsTrue em : array) {
 			if (em.name().equalsIgnoreCase(name)) {
 				return em;
 			}

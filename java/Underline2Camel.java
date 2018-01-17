@@ -4,8 +4,8 @@ import java.util.regex.Pattern;
 
 /**
  * 驼峰法-下划线互转
- * 
- * @since 2015.07.04
+ * @author seasonszx
+ * @since 2017年11月15日
  * @version 1.0.0
  */
 public class Underline2Camel {

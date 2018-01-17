@@ -4,9 +4,9 @@ import java.util.Base64;
 
 /**
  * Base64Util 双向加密算法
- * 
  * @author seasonszx
  * @since 2017年11月15日
+ * @version 1.0.0
  */
 public class Base64Util {
 

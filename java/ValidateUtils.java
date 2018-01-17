@@ -4,10 +4,9 @@ import java.util.regex.Pattern;
 
 /**
  * 正则表达式验证数据格式
- * <description>
- * 
- * @since 2017年8月25日
- *
+ * @author seasonszx
+ * @since 2017年11月15日
+ * @version 1.0.0
  */
 public class ValidateUtils {
     /** 整数 */
